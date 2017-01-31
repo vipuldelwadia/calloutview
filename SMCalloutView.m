@@ -422,11 +422,11 @@ NSTimeInterval const kSMCalloutViewRepositionDelayForUIScrollView = 1.0/3.0;
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)finished {
     BOOL presenting = [[anim valueForKey:@"presenting"] boolValue];
 
-    if (presenting && finished) {
+    if (presenting) {
         if ([_delegate respondsToSelector:@selector(calloutViewDidAppear:)])
             [_delegate calloutViewDidAppear:(id)self];
     }
-    else if (!presenting && finished) {
+    else if (!presenting) {
         
         [self removeFromParent];
         [self.layer removeAnimationForKey:@"dismiss"];
